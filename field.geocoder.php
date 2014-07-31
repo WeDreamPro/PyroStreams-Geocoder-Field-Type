@@ -44,11 +44,7 @@ class Field_geocoder {
             $html .= '<script src="//maps.google.com/maps/api/js?sensor=false"></script>';
             $html .= '<link rel="stylesheet" href="' . base_url('streams_core/field_asset/css/geocoder/geocoder.css') . '" />';
             $html .= '<script type="text/javascript" src="' . base_url('streams_core/field_asset/js/geocoder/geocoder.js') . '"></script>';
-            $html .= '<script type="text/javascript">
-$(function() {
-    initialize("' . $data['form_slug'] . '");
-});
-</script>';
+            $html .= '<script type="text/javascript">$(function() {initialize("' . $data['form_slug'] . '");});</script>';
         }
 
         $html .= '<span id="' . $data['form_slug'] . '_msg" class="stream_map_msg"></span>';
