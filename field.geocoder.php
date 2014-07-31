@@ -37,7 +37,21 @@ class Field_geocoder {
             'type' => 'hidden',
         );
 
-        $html = '<span id="' . $data['form_slug'] . '_msg" class="stream_map_msg"></span>';
+        $html = "";
+
+        /** Add assets if not admin * */
+        if ($this->CI->uri->segment(1) !== "admin") {
+            $html .= '<script src="//maps.google.com/maps/api/js?sensor=false"></script>';
+            $html .= '<link rel="stylesheet" href="' . base_url('streams_core/field_asset/css/geocoder/geocoder.css') . '" />';
+            $html .= '<script type="text/javascript" src="' . base_url('streams_core/field_asset/js/geocoder/geocoder.js') . '"></script>';
+            $html .= '<script type="text/javascript">
+$(function() {
+    initialize("' . $data['form_slug'] . '");
+});
+</script>';
+        }
+
+        $html .= '<span id="' . $data['form_slug'] . '_msg" class="stream_map_msg"></span>';
         $html .= '<div id="' . $data['form_slug'] . '_map" class="stream_map"></div>';
 
         $options_input = array(
