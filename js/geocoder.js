@@ -9,8 +9,7 @@ function initialize(form_slug) {
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  console.log(field_slug);
-  console.log(document.getElementById(field_slug+'_map'));
+  
   map = new google.maps.Map(document.getElementById(field_slug+'_map'), mapOptions);
 
   var input = $('#'+field_slug+'_input');
