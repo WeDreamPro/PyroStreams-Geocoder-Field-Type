@@ -31,7 +31,7 @@ function mapLocation() {
 
   geocoder.geocode({ 'address': address }, function(results, status) {
     if (status != google.maps.GeocoderStatus.OK) {
-      $('#'+field_slug+'_msg').addClass('msg_error').html('<span class="icon-remove"></span> '+status);
+      $('#'+field_slug+'_msg').addClass('msg_error').html('<span class="fa fa-caret"></span> '+status);
       return;
     }
 
@@ -63,6 +63,6 @@ function updateMarkerPosition(loc, address) {
     'address': address
   }
   $('#'+field_slug).val(JSON.stringify(obj));
-  $('#'+field_slug+'_msg').removeClass('msg_error').html('<span class="fa fa-ok"></span> '+loc.toUrlValue());
+  $('#'+field_slug+'_msg').removeClass('msg_error').html('<span class="fa fa-check"></span> '+address+' - '+loc.toUrlValue());
 }
 
